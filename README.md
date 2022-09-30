@@ -1,4 +1,5 @@
-# RISC-V-SingleCycleCore
+<h1> Uraan </h1>
+<h1> RISC-V-SingleCycleCore</h1>
 A single cycle processor is a processor that carries out one instruction in a single clock cycle.
 
 ## Designed by Talha Ahmed
