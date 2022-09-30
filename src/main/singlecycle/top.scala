@@ -107,7 +107,7 @@ jalrCompMod.io.imm := ImmgenMod.io.i_imm
 
 PCMod.io.input := MuxCase ( 0.U , Array (
 (CntrlDecMod.io.nextPCsel === "b00".U ) -> PCMod.io.pc4 ,
-(CntrlDecMod.io.nextPCsel === "b01".U) -> Mux(BrcntrlMod.io.br_taken,PCMod.io.pc4,(ImmgenMod.io.sb_imm).asUInt) ,
+(CntrlDecMod.io.nextPCsel === "b01".U) -> Mux(BrcntrlMod.io.br_taken,(ImmgenMod.io.sb_imm).asUInt,PCMod.io.pc4) ,
 (CntrlDecMod.io.nextPCsel === "b10".U) -> (ImmgenMod.io.uj_imm).asUInt ,
 (CntrlDecMod.io.nextPCsel === "b11".U) -> (jalrCompMod.io.out).asUInt)
 )
