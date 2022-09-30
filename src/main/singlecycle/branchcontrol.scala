@@ -23,7 +23,7 @@ val bgeu = "b10111".U}
 
 import ALUC._
 //val temp = RegInit(0.U)
-io.br_taken := 0.U
+io.br_taken := 0.B
 switch ( io.aluc ) {
 is (beq ) {
 when (io.arg_x === io.arg_y){
