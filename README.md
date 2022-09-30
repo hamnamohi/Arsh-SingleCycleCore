@@ -1,15 +1,18 @@
-<h1> Uraan </h1>
-<h1> RISC-V-SingleCycleCore</h1>
-A single cycle processor is a processor that carries out one instruction in a single clock cycle.
+<h1><b>Arsh - عرش </b> </h1>
 
-## Designed by Talha Ahmed
+<div align='center'><img src="https://readme-typing-svg.demolab.com?font=Arial&size=22&pause=1000&color=89CFF0&multiline=true&width=435&lines=RISC-V+Single+Cycle+Core" alt="Typing SVG" /><br>
+<img src="https://readme-typing-svg.demolab.com?font=Arial&size=18&pause=1000&color=F7F7F7&multiline=true&width=435&lines=Designed+by+Hamna+Mohiuddin" alt="Typing SVG" />
+</div>
 
 First of all get started by cloning this repository on your machine.
-```
+
+```ruby
 git clone https://github.com/hamnamohi/RISCV-single-cycle.git
 ```
-Create a .txt file and place the hexadecimal code of your instructions simulated on Venus (RISC-V Simulator)
+
+Create a .txt file and place the ***hexadecimal*** code of your instructions simulated on ***Venus*** (RISC-V Simulator)\
 Each instruction's hexadecimal code must be on seperate line as following. This program consists of 9 instructions.
+
 ```
 00500113
 00500193
@@ -23,37 +26,34 @@ Each instruction's hexadecimal code must be on seperate line as following. This 
 ```
 Then perform the following step
 ```
-cd src/main/scala/abc.txt
+cd RISCV-single-cycle\src\main\scala\controler
 ```
-Open insmem.scala with this command. You can also manually go into the above path and open the file in your favorite text editor.
-```
-open instmemory.scala
+Open **InstructionMem.scala** with this command. You can also manually go into the above path and open the file in your favorite text editor.
+```ruby
+open InstructionMem.scala
 ```
 Find the following line
+``` python
+loadMemoryFromFile(mem, "RISCV-single-cycle\src\main\scala\controler/text.txt")
 ```
-loadMemoryFromFile(mem,"/home/talha/riscv/shaheen/abc.txt")
-```
-Change the .txt file path to match your file that you created above storing your own program instructions.
-After setting up the Memory.scala file, go inside the shaheen folder.
-```
-cd root/shaheen
+Change the .txt file path to match your file that you created above storing your own program instructions. or you can also use this file\
+After setting up the InstructionMem.scala file, go inside the RV32i folder.
+```ruby
+cd Single-Cycle-CPU/RV32i
 ```
 And enter
-```
+```ruby
 sbt
 ```
 When the terminal changes to this type
-```
-sbt:shaheen>
+```ruby
+sbt:RISCV-single-cycle>
 ```
 Enter this command
+```ruby
+sbt:RISCV-single-cycle> testOnly controler.toptest -- -DwriteVcd=1
 ```
-sbt:shaheen> test:runMain riscv.Launcher Top
-```
-After you get success
-```
-sbt:shaheen> test:runMain riscv.Launcher Top --backend-name verilator
-```
-After success you will get a folder test_run_dir on root of your folder. Go into the examples folder inside.
-There you will find the folder named Top. Enter in it and you can find the Top.vcd file which you visualise on gtkwave to
+
+After success you will get a folder ***test_run_dir*** on root of your folder. Go into the examples folder inside.\
+There you will find the folder named Top. Enter in it and you can find the Top.vcd file which you visualise on **gtkwave** to\
 see your program running.
