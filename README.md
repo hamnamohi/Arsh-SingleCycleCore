@@ -1,13 +1,13 @@
 <h1><b>Arsh - عرش </b> </h1>
 
 <div align='center'><img src="https://readme-typing-svg.demolab.com?font=Arial&size=22&pause=1000&color=89CFF0&multiline=true&width=435&lines=RISC-V+Single+Cycle+Core" alt="Typing SVG" /><br>
-<img src="https://readme-typing-svg.demolab.com?font=Arial&size=18&pause=1000&color=F7F7F7&multiline=true&width=435&lines=Designed+by+Hamna+Mohiuddin" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Arial&size=18&pause=1000&color=89CFF0&multiline=true&width=435&lines=Designed+by+Hamna+Mohiuddin" alt="Typing SVG" />
 </div>
 
 First of all get started by cloning this repository on your machine.
 
 ```ruby
-git clone https://github.com/hamnamohi/RISCV-single-cycle.git
+git clone https://github.com/hamnamohi/Arsh-SingleCycleCore.git
 ```
 
 Create a .txt file and place the ***hexadecimal*** code of your instructions simulated on ***Venus*** (RISC-V Simulator)\
