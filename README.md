@@ -26,20 +26,20 @@ Each instruction's hexadecimal code must be on seperate line as following. This 
 ```
 Then perform the following step
 ```
-cd RISCV-single-cycle\src\main\scala\controler
+cd Arsh-SingleCycleCore\src\main\singlecycle
 ```
-Open **InstructionMem.scala** with this command. You can also manually go into the above path and open the file in your favorite text editor.
+Open **instmemory.scala** with this command. You can also manually go into the above path and open the file in your favorite text editor.
 ```ruby
-open InstructionMem.scala
+open instmemory.scala
 ```
 Find the following line
 ``` python
-loadMemoryFromFile(mem, "RISCV-single-cycle\src\main\scala\controler/text.txt")
+loadMemoryFromFile (imemm,"D:/merl/Scala-Chisel-Learning-Journey/src/main/scala/singlecycle/abc.txt")
 ```
 Change the .txt file path to match your file that you created above storing your own program instructions. or you can also use this file\
-After setting up the InstructionMem.scala file, go inside the RV32i folder.
+After setting up the instmemory.scala file, go inside the Arsh-SingleCycleCore.
 ```ruby
-cd Single-Cycle-CPU/RV32i
+cd root/Arsh-SingleCycleCore
 ```
 And enter
 ```ruby
@@ -47,11 +47,11 @@ sbt
 ```
 When the terminal changes to this type
 ```ruby
-sbt:RISCV-single-cycle>
+sbt:Arsh-SingleCycleCore>
 ```
 Enter this command
 ```ruby
-sbt:RISCV-single-cycle> testOnly controler.toptest -- -DwriteVcd=1
+sbt:Arsh-SingleCycleCore> testOnly singlecycle.toptest -- -DwriteVcd=1
 ```
 
 After success you will get a folder ***test_run_dir*** on root of your folder. Go into the examples folder inside.\
