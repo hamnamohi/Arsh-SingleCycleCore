@@ -19,18 +19,20 @@ val ImmgenMod = Module(new ImmdValGen1)
 val instmemMod = Module (new InstMem)
 val jalrCompMod = Module (new jalr)
 val regfileMod = Module (new regfile)
+val config= Module(new configure)
 
 PCMod.io.input := PCMod.io.pc4
 
 instmemMod.io.addr := PCMod.io.pc(11,2)
-CntrlDecMod.io.opcode := instmemMod.io.inst(6,0)
+CntrlDecMod.io.Instruction := instmemMod.io.inst
 io.addr := instmemMod.io.addr
 
 //regfile
 regfileMod.io.RegWrite := CntrlDecMod.io.RegWrite
 regfileMod.io.rs1:= instmemMod.io.inst(19,15)
 regfileMod.io.rs2 := instmemMod.io.inst(24,20)
-regfileMod.io.rd := instmemMod.io.inst(11,7)
+regfileMod.io.rd:=instmemMod.io.inst(11,7)
+
 
 //immegen
 ImmgenMod.io.instruction := instmemMod.io.inst
@@ -59,11 +61,20 @@ when(CntrlDecMod.io.Ex_sel === "b00".U && CntrlDecMod.io.opBsel === 1.U){
 	}.elsewhen(CntrlDecMod.io.Ex_sel === "b10".U && CntrlDecMod.io.opBsel === 1.U){
 		ALUMod.io.in_B := ImmgenMod.io.u_imm
 	}.otherwise{
-		ALUMod.io.in_B := regfileMod.io.rdata2
+		ALUMod.io.in_B := ImmgenMod.io.z_imm
 	}
 
 
 ALUMod.io.aluc := ALUcMod.io.aluc
+
+		config.io.rs1 :=instmemMod.io.inst(19,15)
+        config.io.rd := instmemMod.io.inst(11,7)
+        config.io. rs1_readdata := regfileMod.io.rdata1
+        config.io.zimm := ALUMod.io.in_B
+        config.io.current_vl :=16.S
+		regfileMod.io.rd := config.io.rd_out
+
+
 
 //Branch
 
@@ -119,7 +130,7 @@ datamemMod.io.MemWrite := CntrlDecMod.io.MemWrite
 datamemMod.io.MemRead := CntrlDecMod.io.MemRead
 
 regfileMod.io.WriteData := MuxCase ( 0.S , Array (
-(CntrlDecMod.io.Mem2Reg === 0.B ) -> ALUMod.io.output ,
+(CntrlDecMod.io.Mem2Reg === 0.B ) -> Mux(CntrlDecMod.io.vset,config.io.vl,ALUMod.io.output),
 (CntrlDecMod.io.Mem2Reg === 1.B ) -> datamemMod.io.out)
 )
 io.out := 0.U

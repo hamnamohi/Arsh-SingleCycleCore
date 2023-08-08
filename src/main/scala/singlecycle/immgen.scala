@@ -10,6 +10,8 @@ class ImmdValGen extends Bundle {
 	val uj_imm = Output(SInt(32.W))
 	val u_imm = Output(SInt(32.W))
 	val i_imm = Output(SInt(32.W))
+	val z_imm = Output(SInt(32.W))
+
 }
 
 class ImmdValGen1 extends Module {
@@ -28,4 +30,6 @@ class ImmdValGen1 extends Module {
 	io.u_imm := (((Cat(Fill(12,io.instruction(31)),io.instruction(31,12))) << 12)+io.pc).asSInt
 	//I-type
 	io.i_imm := (Cat(Fill(20,io.instruction(31)),io.instruction(31,20))).asSInt
+
+	io.z_imm:= (Cat(Fill(21,io.instruction(30)),io.instruction(30,20))).asSInt
 }
